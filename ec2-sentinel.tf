@@ -15,10 +15,16 @@ data "aws_ami" "ubuntu" {
 }
 
 resource "aws_instance" "web" {
-  ami           = "${data.aws_ami.ubuntu.id}"
+  ami           = data.aws_ami.ubuntu.id
   instance_type = "t2.micro"
 
   tags = {
-    Name = "HelloWorld"
+    team = "presales"
+    product = "weather"
+    environment = "demo"
+    owner = "rohitg"
+    bu = "architects"
+    function = "api"
+    costcenter = "007"
   }
 }
