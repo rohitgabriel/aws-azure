@@ -1,5 +1,5 @@
 resource "aws_security_group" "node" {
-  vpc_id      = data.aws_vpc.vpc.id
+  vpc_id      = aws_vpc.demovpc.id
   name        = "sg_demo"
   description = "security group that allows ssh and all egress traffic"
   egress {
