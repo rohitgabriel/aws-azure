@@ -52,6 +52,7 @@ module "demo_asg" {
   security_groups = [data.aws_security_group.default.id]
   load_balancers  = [module.elb.this_elb_id]
   associate_public_ip_address = true
+  key_name = "awskey"
 
   ebs_block_device = [
     {
