@@ -9,7 +9,7 @@ data "aws_subnet_ids" "all" {
 
 data "aws_security_group" "default" {
   vpc_id = module.vpc.vpc_id
-  name   = "default"
+  name   = "sg_demo"
 }
 
 data "aws_ami" "amazon_linux" {
