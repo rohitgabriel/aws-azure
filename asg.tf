@@ -70,7 +70,7 @@ module "demo_asg" {
 
   # Auto scaling group
   asg_name                  = "demo-asg"
-  vpc_zone_identifier       = data.aws_subnet_ids.all.ids
+  vpc_zone_identifier       = data.aws_subnet_ids.all.id
   health_check_type         = "EC2"
   min_size                  = 0
   max_size                  = 1
@@ -98,7 +98,7 @@ module "elb" {
 
   name = "elb-demo"
 
-  subnets         = data.aws_subnet_ids.all.ids
+  subnets         = data.aws_subnet_ids.all.id
   security_groups = [data.aws_security_group.default.id]
   internal        = false
 
