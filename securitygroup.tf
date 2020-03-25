@@ -1,5 +1,5 @@
 resource "aws_security_group" "web" {
-  vpc_id      = aws_vpc.default.id
+  vpc_id      = data.aws_vpc.default.id
   name        = "sg-demo"
   description = "security group that allows ssh and all egress traffic"
   egress {
