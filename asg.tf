@@ -51,6 +51,7 @@ module "demo_asg" {
   instance_type   = "t2.micro"
   security_groups = [data.aws_security_group.default.id]
   load_balancers  = [module.elb.this_elb_id]
+  associate_public_ip_address = true
 
   ebs_block_device = [
     {
