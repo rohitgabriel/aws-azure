@@ -1,4 +1,4 @@
-module "vpc" "default" {
+module "default" {
   source = "terraform-aws-modules/vpc/aws"
 
   name = "demovpc"
