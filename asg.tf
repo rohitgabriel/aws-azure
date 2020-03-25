@@ -2,7 +2,7 @@
 # Data sources to get VPC, subnets and security group details
 ##############################################################
 data "aws_vpc" "default" {
-  vpc_id = module.vpc.vpc_id
+  name = demovpc
 }
 
 data "aws_subnet_ids" "all" {
