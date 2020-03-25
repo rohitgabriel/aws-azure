@@ -1,6 +1,0 @@
-# Restricting region in AWS
-aws_region_valid = rule {
-  all region_values as rv {
-    rv == "ap-southeast-2"
-  }
-}
