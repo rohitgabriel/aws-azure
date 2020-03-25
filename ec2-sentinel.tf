@@ -15,11 +15,11 @@ data "aws_ami" "ubuntu" {
 }
 
 resource "aws_instance" "web" {
-  name          = "approved-vm"
   ami           = data.aws_ami.ubuntu.id
   instance_type = "t2.micro"
 
   tags = {
+    Name = "approved-vm"
     team = "presales"
     product = "weather"
     environment = "demo"
