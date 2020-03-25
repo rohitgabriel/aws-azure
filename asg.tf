@@ -70,7 +70,7 @@ module "demo_asg" {
 
   # Auto scaling group
   asg_name                  = "demo-asg"
-  vpc_zone_identifier       = data.aws_subnet_ids.all.ids
+  vpc_zone_identifier       = module.vpc.public_subnets
   health_check_type         = "EC2"
   min_size                  = 0
   max_size                  = 1
