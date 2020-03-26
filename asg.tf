@@ -47,7 +47,8 @@ module "demo_asg" {
   # create_lc = false # disables creation of launch configuration
   lc_name = "demo-lc"
 
-  image_id        = data.aws_ami.amazon_linux.id
+  #image_id        = data.aws_ami.amazon_linux.id
+  image_id        = var.AMI_ID
   instance_type   = "t2.micro"
   security_groups = [data.aws_security_group.default.id]
   load_balancers  = [module.elb.this_elb_id]
