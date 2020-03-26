@@ -1,10 +1,24 @@
 ---
-- name: Install and configure weatherapp image
+- name: Install and configure software on weatherapp instance
   hosts: all
   become: true
 
+  # vars:
+  #   helloworld: Meow!
+
   tasks:
-  - name: Install apache httpd 
-    apt:
-      name: apache2
+
+
+  - name: Add epel-release repo
+    yum:
+      name: epel-release
+      state: present
+
+  - name: Install packages
+    yum:
+      name: 
+        - unzip
+        - centos-release-scl
+        - ansible
+        - golang-go
       state: present
