@@ -15,6 +15,12 @@
     }],
     "provisioners": [
     {
+      "type": "shell",
+      "scripts": [  "shell/install_software.sh"   ],
+      "execute_command": "{{ .Vars }} sudo -E sh '{{ .Path }}'",
+      "pause_before": "10s"
+    },
+    {
       "type": "ansible",
       "playbook_file": "ansible/weatherapp-playbook.yml"
     }
