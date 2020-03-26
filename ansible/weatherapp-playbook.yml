@@ -1,10 +1,19 @@
 ---
-- name: Install and configure weatherapp 
+- name: Install and configure weatherapp
   hosts: all
   become: true
+  become_method: sudo
+  become_user: root
 
   tasks:
-  - name: Install apache httpd 
+  - name: Run the equivalent of "apt-get update"
     apt:
-      name: apache2
-      state: present
+      update_cache: yes
+
+  - name: Setup nodejs source
+    shell: curl -sL https://deb.nodesource.com/setup_13.x | sudo -E bash -
+
+  - name: Install a list of packages
+    apt:
+      pkg:
+      - nodejs
