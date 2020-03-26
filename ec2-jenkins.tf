@@ -14,7 +14,7 @@ data "aws_ami" "ubuntu2" {
   owners = ["099720109477"] # Canonical
 }
 
-resource "aws_instance" "web" {
+resource "aws_instance" "jenkins" {
   ami           = data.aws_ami.ubuntu2.id
   instance_type = "t2.micro"
   key_name = "awskey"
