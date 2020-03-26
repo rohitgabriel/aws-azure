@@ -1,4 +1,4 @@
-data "aws_ami" "ubuntu" {
+data "aws_ami" "ubuntu2" {
   most_recent = true
 
   filter {
@@ -15,17 +15,17 @@ data "aws_ami" "ubuntu" {
 }
 
 resource "aws_instance" "web" {
-  ami           = data.aws_ami.ubuntu.id
+  ami           = data.aws_ami.ubuntu2.id
   instance_type = "t2.micro"
   key_name = "awskey"
   tags = {
-    Name = "approved-vm"
+    Name = "jenkins-vm"
     team = "presales"
     product = "weather"
     environment = "demo"
     owner = "rohitg"
     bu = "architects"
-    function = "api"
+    function = "cicd"
     costcenter = "007"
   }
 }
