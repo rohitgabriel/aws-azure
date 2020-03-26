@@ -90,9 +90,11 @@ module "demo_asg" {
       bu = "architects"
       function = "weatherapp"
       costcenter = "007"
+      key                 = "Project"
+      value               = "megasecret"
       propagate_at_launch = true
     },
-    {
+    { 
       Name = "jenkins-vm"
       team = "presales"
       product = "weather"
@@ -101,6 +103,9 @@ module "demo_asg" {
       bu = "architects"
       function = "weatherapp"
       costcenter = "007"
+      propagate_at_launch = true
+      key                 = "Project"
+      value               = "megasecret"
       propagate_at_launch = true
     },
   ]
