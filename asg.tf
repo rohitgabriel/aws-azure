@@ -82,13 +82,25 @@ module "demo_asg" {
 
   tags = [
     {
-      key                 = "Environment"
-      value               = "dev"
+      Name = "jenkins-vm"
+      team = "presales"
+      product = "weather"
+      environment = "demo"
+      owner = "rohitg"
+      bu = "architects"
+      function = "weatherapp"
+      costcenter = "007"
       propagate_at_launch = true
     },
     {
-      key                 = "Project"
-      value               = "megasecret"
+      Name = "jenkins-vm"
+      team = "presales"
+      product = "weather"
+      environment = "demo"
+      owner = "rohitg"
+      bu = "architects"
+      function = "weatherapp"
+      costcenter = "007"
       propagate_at_launch = true
     },
   ]

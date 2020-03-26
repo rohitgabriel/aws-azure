@@ -13,33 +13,33 @@ resource "aws_security_group" "node" {
     from_port   = 22
     to_port     = 22
     protocol    = "tcp"
-    cidr_blocks = ["111.69.94.233/32"]
+    cidr_blocks = ["103.62.49.229/32"]
   }
 
   ingress {
     from_port   = 3000
     to_port     = 3000
     protocol    = "tcp"
-    cidr_blocks = ["111.69.94.233/32"]
+    cidr_blocks = ["103.62.49.229/32"]
   }
 
   ingress {
     from_port   = 80
     to_port     = 80
     protocol    = "tcp"
-    cidr_blocks = ["111.69.94.233/32"]
+    cidr_blocks = ["103.62.49.229/32"]
   }
   ingress {
     from_port   = 8080
     to_port     = 8080
     protocol    = "tcp"
-    cidr_blocks = ["111.69.94.233/32"]
+    cidr_blocks = ["103.62.49.229/32"]
   }
   ingress {
     from_port   = 5000
     to_port     = 5000
     protocol    = "tcp"
-    cidr_blocks = ["111.69.94.233/32"]
+    cidr_blocks = ["103.62.49.229/32"]
   }
   tags = {
     access = "homeip"
