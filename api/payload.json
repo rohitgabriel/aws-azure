@@ -1,0 +1,17 @@
+{
+    "data": {
+      "attributes": {
+        "is-destroy":false,
+        "message": "Scheduled by Buddy CI CD"
+      },
+      "type":"runs",
+      "relationships": {
+        "workspace": {
+          "data": {
+            "type": "workspaces",
+            "id": "ws-ZfZDGaCLc5LKjrsB"
+          }
+        }
+      }
+    }
+  }

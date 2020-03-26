@@ -8,17 +8,12 @@
       "access_key": "{{user `aws_access_key`}}",
       "secret_key": "{{user `aws_secret_key`}}",
       "region": "ap-southeast-2",
-      "source_ami": "ami-08bd00d7713a39e7d",
+      "source_ami": "ami-07ec7aee8a573b2ae",
       "instance_type": "t2.micro",
-      "ssh_username": "centos",
-      "ami_name": "packer-centos7-cigna {{timestamp}}"
+      "ssh_username": "ubuntu",
+      "ami_name": "packer-ubuntu18-weatherapp {{timestamp}}"
     }],
-    "provisioners": [{
-      "type": "shell",
-      "scripts": [  "shell/install_software.sh"   ],
-      "execute_command": "{{ .Vars }} sudo -E sh '{{ .Path }}'",
-      "pause_before": "10s"
-    },
+    "provisioners": [
     {
       "type": "ansible",
       "playbook_file": "ansible/weatherapp-playbook.yml"
