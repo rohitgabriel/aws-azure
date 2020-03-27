@@ -7,6 +7,15 @@ pipeline {
         AWS_DEFAULT_REGION="ap-southeast-2"
     }
     stages {
+        stage('Checkout external proj') {
+            steps {
+                git branch: 'master',
+                credentialsId: 'mygitcredid',
+                url: 'https://github.com/rohitgabriel/aws-azure.git'
+
+                sh "ls -lat"
+            }
+        }
         stage("Checkout repo") {
             steps {
                 checkout([
