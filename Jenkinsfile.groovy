@@ -14,13 +14,6 @@ pipeline {
                 url: 'https://github.com/rohitgabriel/aws-azure.git'
             }
         }
-        stage("Refresh VM ") {
-            steps {
-                withAWS(credentials: 'TerraformAWSCreds', region: 'ap-southeast-2') {
-                sh 'aws iam get-user'
-              }
-            }
-        }
         stage("Packer build") {
             steps {
                 sh '''
@@ -64,6 +57,13 @@ pipeline {
                 export TF_VAR_AWS_DEFAULT_REGION="ap-southeast-2"
                 /usr/local/bin/terraform apply -input=false tfplan
                 '''
+            }
+        }
+        stage("Refresh Instance in ASG") {
+            steps {
+                withAWS(credentials: 'TerraformAWSCreds', region: 'ap-southeast-2') {
+                sh './refresh-asg.sh'
+              }
             }
         }
         stage("clean up") {
