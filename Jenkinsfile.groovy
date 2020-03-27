@@ -31,6 +31,9 @@ pipeline {
                 '''
             }
         }
+        input{
+            message "Apply or Abort?"
+        }
         stage("terraform apply") {
             steps {
                 sh '''
