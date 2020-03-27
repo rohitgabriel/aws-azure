@@ -24,11 +24,9 @@ pipeline {
         stage("terraform plan") {
             steps {
                 sh '''
-                AWS_ACCESS_KEY_ID="${AWS_CRED_USR}"
-                AWS_SECRET_ACCESS_KEY="${AWS_CRED_PSW}"
-                AWS_DEFAULT_REGION="ap-southeast-2"
-                echo "${AWS_CRED_USR}"
-                echo "${AWS_ACCESS_KEY_ID}"
+                export TF_VAR_AWS_ACCESS_KEY_ID="${AWS_CRED_USR}"
+                export TF_VAR_AWS_SECRET_ACCESS_KEY="${AWS_CRED_PSW}"
+                export TF_VAR_AWS_DEFAULT_REGION="ap-southeast-2"
                 /usr/local/bin/terraform plan -out=tfplan -input=false
                 '''
             }
