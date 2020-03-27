@@ -16,7 +16,7 @@ pipeline {
         }
         stage("Refresh VM ") {
             steps {
-                withAWS(credentials: 'AWS-Account-Credentials', region: 'ap-southeast-2') {
+                withAWS(credentials: 'TerraformAWSCreds', region: 'ap-southeast-2') {
                 sh 'aws iam get-user'
               }
             }
