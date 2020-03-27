@@ -10,7 +10,7 @@ pipeline {
         stage("Checkout repo") {
             steps {
                 checkout([
-                    $class: 'GITSCM',
+                    $class: 'GitSCM',
                     branches: [[name: 'refs/head/master']],
                     doGenerateSubmoduleConfigurations: false,
                     extensions: [[
