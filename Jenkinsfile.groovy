@@ -30,9 +30,9 @@ pipeline {
                 /usr/local/bin/terraform plan -out=tfplan -input=false
                 '''
             }
-        }
-        input{
-            message "Apply or Abort?"
+            input {
+            message "Apply or Abort"
+            }
         }
         stage("terraform apply") {
             steps {
