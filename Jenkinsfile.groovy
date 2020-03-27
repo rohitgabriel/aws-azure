@@ -14,6 +14,13 @@ pipeline {
                 url: 'https://github.com/rohitgabriel/aws-azure.git'
             }
         }
+        stage("Refresh VM ") {
+            steps {
+                withAWS(credentials: 'AWS-Account-Credentials', region: 'ap-southeast-2') {
+                sh 'aws iam get-user'
+              }
+            }
+        }
         stage("Packer build") {
             steps {
                 sh '''
