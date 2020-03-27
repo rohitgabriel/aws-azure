@@ -35,6 +35,9 @@ pipeline {
             input {
             message "Apply or Abort?"
             }
+            steps {
+                echo 'Terraform state is maintained at app.terraform.io, org: int, workspace: demo'
+            }
         }
         stage("terraform apply") {
             steps {
