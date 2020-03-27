@@ -1,7 +1,7 @@
 pipeline {
     agent any
     environment {
-        AWS_CRED=credentials('AWS-Account-Credentials')
+        AWS_CRED=credentials('AWSNTT-Account-Credentials')
         AWS_ACCESS_KEY_ID="${AWS_CRED_USR}"
         AWS_SECRET_ACCESS_KEY="${AWS_CRED_PSW}"
         AWS_DEFAULT_REGION="ap-southeast-2"
@@ -29,14 +29,17 @@ pipeline {
         stage("terraform init") {
             steps {
                 sh '''
-                pwd
+                /usr/local/bin/terraform init -input=false
                 '''
             }
         }
         stage("terraform plan") {
             steps {
                 sh '''
-                pwd
+                AWS_ACCESS_KEY_ID="${AWS_CRED_USR}"
+                AWS_SECRET_ACCESS_KEY="${AWS_CRED_PSW}"
+                AWS_DEFAULT_REGION="ap-southeast-2"
+                /usr/local/bin/terraform plan -out=tfplan -input=false
                 '''
             }
         }
