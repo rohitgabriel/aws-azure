@@ -24,7 +24,7 @@ pipeline {
         stage("terraform init") {
             steps {
                 sh """
-                /usr/local/bin/terraform
+                /usr/local/bin/terraform init
                 """
             }
         }
