@@ -30,24 +30,26 @@ pipeline {
                 /usr/local/bin/terraform plan -out=tfplan -input=false
                 '''
             }
+        }
+        stage("Approval required") {
             input {
-            message "Apply or Abort"
+            message "Apply or Abort?"
             }
         }
         stage("terraform apply") {
             steps {
                 sh '''
-                pwd
+                export TF_VAR_AWS_ACCESS_KEY_ID="${AWS_CRED_USR}"
+                export TF_VAR_AWS_SECRET_ACCESS_KEY="${AWS_CRED_PSW}"
+                export TF_VAR_AWS_DEFAULT_REGION="ap-southeast-2"
+                /usr/local/bin/terraform apply -input=false tfplan
                 '''
             }
         }
         stage("clean up") {
             steps {
                 sh '''
-                AWS_ACCESS_KEY_ID="${AWS_CRED_USR}"
-                AWS_SECRET_ACCESS_KEY="${AWS_CRED_PSW}"
-                AWS_DEFAULT_REGION="ap-southeast-2"
-                pwd
+                rm ./tfplan
                 '''
             }
         }
