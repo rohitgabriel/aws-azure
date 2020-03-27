@@ -16,7 +16,7 @@ pipeline {
         }
         stage("terraform init") {
             steps {
-                terraform init -input=false
+                '/usr/local/bin/terraform init -input=false'
             }
         }
         stage("terraform plan") {
