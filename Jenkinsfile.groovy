@@ -14,6 +14,16 @@ pipeline {
                 url: 'https://github.com/rohitgabriel/aws-azure.git'
             }
         }
+        stage("Packer build") {
+            steps {
+                sh '''
+                export AWS_ACCESS_KEY_ID="${AWS_CRED_USR}"
+                export AWS_SECRET_ACCESS_KEY="${AWS_CRED_PSW}"
+                export AWS_DEFAULT_REGION="ap-southeast-2"
+                ./build-image-with-packer.sh
+                '''
+            }
+        }
         stage("terraform init") {
             steps {
                 sh """
