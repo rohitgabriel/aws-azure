@@ -14,11 +14,18 @@ pipeline {
                 url: 'https://github.com/rohitgabriel/aws-azure.git'
             }
         }
-        stage("terraform init") {
+        stage("terraform apply") {
             steps {
                 sh '''
-                /usr/local/bin/terraform init -input=false
+                pwd
                 '''
+            }
+        }
+        stage("terraform init") {
+            steps {
+                sh """
+                /usr/local/bin/terraform init -input=false
+                """
             }
         }
         stage("terraform plan") {
@@ -31,13 +38,7 @@ pipeline {
                 '''
             }
         }
-        stage("terraform apply") {
-            steps {
-                sh '''
-                pwd
-                '''
-            }
-        }
+        
         stage("clean up") {
             steps {
                 sh '''
