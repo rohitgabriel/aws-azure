@@ -27,6 +27,8 @@ pipeline {
                 AWS_ACCESS_KEY_ID="${AWS_CRED_USR}"
                 AWS_SECRET_ACCESS_KEY="${AWS_CRED_PSW}"
                 AWS_DEFAULT_REGION="ap-southeast-2"
+                echo "${AWS_CRED_USR}"
+                echo "${AWS_ACCESS_KEY_ID}"
                 /usr/local/bin/terraform plan -out=tfplan -input=false
                 '''
             }
