@@ -13,7 +13,7 @@ resource "aws_security_group" "node" {
     from_port   = 22
     to_port     = 22
     protocol    = "tcp"
-    cidr_blocks = ["111.69.94.233/32","13.238.125.84"]
+    cidr_blocks = ["111.69.94.233/32","13.238.125.84/32"]
   }
 
   ingress {
