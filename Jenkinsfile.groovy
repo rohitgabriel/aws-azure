@@ -22,7 +22,7 @@ pipeline {
                         trackingSubmodules: false
                     ]],
                     submoduleCfg: [],
-                    userRemoteConfigs: [[url: 'https://github.com/rohitgabriel/aws-azure.git']]
+                    userRemoteConfigs: [[credentialsId:'mygitcredid', url: 'https://github.com/rohitgabriel/aws-azure.git']]
                 ])
             }
         }
