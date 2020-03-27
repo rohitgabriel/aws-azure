@@ -26,28 +26,28 @@ pipeline {
                 ])
             }
         }
-        stage("test") {
+        stage("terraform init") {
             steps {
                 sh '''
                 pwd
                 '''
             }
         }
-        stage("test") {
+        stage("terraform plan") {
             steps {
                 sh '''
                 pwd
                 '''
             }
         }
-        stage("test") {
+        stage("terraform apply") {
             steps {
                 sh '''
                 pwd
                 '''
             }
         }
-        stage("test") {
+        stage("clean up") {
             steps {
                 sh '''
                 pwd
