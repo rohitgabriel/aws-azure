@@ -7,13 +7,13 @@ pipeline {
         AWS_DEFAULT_REGION="ap-southeast-2"
     }
     stages {
-        stage('Checkout repo') {
-            steps {
-                git branch: 'master',
-                credentialsId: 'mygitcredid',
-                url: 'https://github.com/rohitgabriel/aws-azure.git'
-            }
-        }
+        // stage('Checkout repo') {
+        //     steps {
+        //         git branch: 'master',
+        //         credentialsId: 'mygitcredid',
+        //         url: 'https://github.com/rohitgabriel/aws-azure.git'
+        //     }
+        // }
         stage("Packer build") {
             steps {
                 sh '''
