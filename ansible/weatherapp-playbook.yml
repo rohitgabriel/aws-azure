@@ -21,4 +21,4 @@
   - name: Toggle unzip package
     apt:
       name: unzip
-      state: absent
+      state: present
